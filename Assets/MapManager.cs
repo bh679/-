@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+	public static float offset = 1.1f;
 	public int length;
 	public Swamps[] swamps;
 	public Teleports[] teleports;
@@ -31,11 +32,11 @@ public class MapManager : MonoBehaviour
 		for(int i = 0; i < length; i++)
 		{
 			Debug.Log(i);
-			tiles[i] = Instantiate(tilePrefab,this.transform) as Tile;
+			tiles[i] = Instantiate(tilePrefab, this.transform) as Tile;
 			t++;
 			
 			//set position
-			tiles[i].transform.position = Vector3.right * i;
+			tiles[i].transform.localPosition = Vector3.right * i * offset;
 			
 			
 			int isSwamp = IsSwamp(i);
@@ -43,7 +44,7 @@ public class MapManager : MonoBehaviour
 			{
 				tiles[i].swamp = true; 
 				
-				swamps[isSwamp].SetUp(tilePrefab);
+				swamps[isSwamp].SetUp(tilePrefab, tiles[i]);
 				
 				t += swamps[isSwamp].length;
 			}
@@ -70,7 +71,7 @@ public class MapManager : MonoBehaviour
 		for(int i = 0; i < swamps.Length; i++)
 		{
 			if(swamps[i].id == id)
-				return id;
+				return i;
 		}
 		
 		return -1;
@@ -96,17 +97,20 @@ public class MapManager : MonoBehaviour
 		public Teleports[] teleports;
 	
 		public Tile[] tiles;
+		public Tile parent;
 	
-		public void SetUp(Tile tilePrefab)
+		public void SetUp(Tile tilePrefab, Tile _parent)
 		{
+			parent = _parent;
+			
 			tiles = new Tile[length];
 		
 			for(int i = 0; i < length; i++)
 			{
-				tiles[i] = Instantiate(tilePrefab) as Tile;;
+				tiles[i] = Instantiate(tilePrefab, parent.transform) as Tile;;
 				
 				//set position
-				tiles[i].transform.position = Vector3.down * i;
+				tiles[i].transform.localPosition = Vector3.down * i * offset;
 			}
 		}
 	}
