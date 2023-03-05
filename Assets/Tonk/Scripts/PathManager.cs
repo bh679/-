@@ -26,22 +26,15 @@ namespace BrennanHatton.Tonk
 			
 		}
 		
-		/*void Start()
-		{
-			for(int i = 0; i < players.Count; i++)
-			{
-				players[i].map = map;
-			}
-		}*/
-		
 		public void MoveNextPlayer(int pos)
 		{
 			Debug.Log("MoveNextPlayer");
-			playersTurn++;
 			if(playersTurn >= players.Count)
 				playersTurn = 0;
 				
 			MovePlayer(playersTurn, pos);
+			
+			playersTurn++;
 		}
 		
 		public void MovePlayer(int playerId, int pos)
