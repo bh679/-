@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace BrennanHatton.Tonk
 {
+	/// <summary>
+	/// A UnityEvent with a int as the parameter
+	/// </summary>
+	[System.Serializable]
+	public class PlayerEvent : UnityEvent<Player> { }
+    
 
 	public class PathManager : MonoBehaviour
 	{
@@ -11,6 +18,8 @@ namespace BrennanHatton.Tonk
 		public Player playerPrefab;
 		public List<Player> players;
 		public int playersTurn = 0;
+		
+		public UnityEvent onEndTurn;
 		
 		public void Reset()
 		{
@@ -30,16 +39,22 @@ namespace BrennanHatton.Tonk
 		void Start()
 		{
 			AddPlayer();
+			
+			playersTurn = 0;
+				
+			onEndTurn.Invoke();
 		}
 		
 		public void MoveNextPlayer(int pos)
 		{
-			Debug.Log("MoveNextPlayer");
+			Debug.Log("MoveNextPlayer " + pos);
 			MovePlayer(playersTurn, pos);
 			
 			playersTurn++;
 			if(playersTurn >= players.Count)
 				playersTurn = 0;
+				
+			onEndTurn.Invoke();
 		}
 		
 		public void MovePlayer(int playerId, int pos)

@@ -15,6 +15,7 @@ namespace BrennanHatton.Tonk
 		public static float offset = 1.1f;
 		public static float playerOffset = 0.25f;
 		public List<Player> players = new List<Player>(); 
+		public MapManager.Swamps swamp;
 		
 		public TMP_Text text;
 		
@@ -46,6 +47,7 @@ namespace BrennanHatton.Tonk
 		
 		public void PositionPlayers()
 		{
+			Debug.Log("PositionPlayers");
 			for(int i = 0; i < players.Count; i++)
 			{
 				players[i].transform.position = 

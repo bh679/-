@@ -10,10 +10,12 @@ namespace BrennanHatton.Tonk
 		public MapManager map;
 		Vector2 position;
 		Tile currentTile;
+		//public Tile CurrentTile {get {return currentTile;}}
 		int id;
 		//public Material[] materials;
 		public Color[] colors;
 		public MeshRenderer[] renderers;
+		public BiasTips biasTips;
 		
 		public void Reset()
 		{
@@ -24,6 +26,8 @@ namespace BrennanHatton.Tonk
 		{
 			if(map == null)
 				map = GameObject.FindAnyObjectByType<MapManager>();
+			
+			biasTips = GameObject.FindAnyObjectByType<BiasTips>();
 			
 			position = Vector2.zero;
 			
@@ -45,13 +49,11 @@ namespace BrennanHatton.Tonk
 			if(currentTile != null)
 				currentTile.RemovePlayer(this);
 			
-			Debug.Log(position);
 			currentTile = map.GetTile(position);
 				
-			Debug.Log(currentTile.isSwampTop);
-			Debug.Log(currentTile.isBias);
 			if(currentTile.isSwampTop || currentTile.teleport)
 			{
+				biasTips.LandedOnTile(currentTile);
 				position = currentTile.teleport.position;
 				
 				currentTile = map.GetTile(position);

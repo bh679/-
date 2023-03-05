@@ -44,6 +44,7 @@ namespace BrennanHatton.Tonk
 				if(isSwamp >= 0)
 				{
 					tiles[i].isSwampTop = true; 
+					tiles[i].swamp = swamps[isSwamp];
 					
 					swamps[isSwamp].SetUp(tilePrefab, tiles[i]);
 					

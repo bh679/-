@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// A UnityEvent with a Grabber as the parameter
+/// A UnityEvent with a int as the parameter
 /// </summary>
 [System.Serializable]
 public class IntEvent : UnityEvent<int> { }
@@ -41,6 +41,8 @@ public class Dice : MonoBehaviour
 		UpdateDisplay(value);
 		
 		onLand.Invoke(value);
+		
+		yield return null;
 	}
 	
 	void UpdateDisplay(int val)
