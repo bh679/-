@@ -8,8 +8,8 @@ namespace BrennanHatton.Tonk
 	public class PathManager : MonoBehaviour
 	{
 		public MapManager map;
-		
 		public List<Player> players;
+		public int playersTurn = 0;
 		
 		public void Reset()
 		{
@@ -17,17 +17,29 @@ namespace BrennanHatton.Tonk
 			map.SetUp();
 		}
 		
-	    // Start is called before the first frame update
-	    void Start()
-	    {
-	        
-	    }
-	
-	    // Update is called once per frame
-	    void Update()
-	    {
-	        
-	    }
+		/*void Start()
+		{
+			for(int i = 0; i < players.Count; i++)
+			{
+				players[i].map = map;
+			}
+		}*/
+		
+		public void MoveNextPlayer(int pos)
+		{
+			Debug.Log("MoveNextPlayer");
+			playersTurn++;
+			if(playersTurn >= players.Count)
+				playersTurn = 0;
+				
+			MovePlayer(playersTurn, pos);
+		}
+		
+		public void MovePlayer(int playerId, int pos)
+		{
+			Debug.Log(playerId + " " + pos);
+			players[playerId].Move(pos);
+		}
 	}
 
 }

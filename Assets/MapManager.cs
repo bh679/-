@@ -7,7 +7,6 @@ namespace BrennanHatton.Tonk
 	
 	public class MapManager : MonoBehaviour
 	{
-		public static float offset = 1.1f;
 		public int length;
 		public Swamps[] swamps;
 		public Teleports[] teleports;
@@ -36,16 +35,14 @@ namespace BrennanHatton.Tonk
 			{
 				Debug.Log(i);
 				tiles[i] = Instantiate(tilePrefab, this.transform) as Tile;
-				t++;
-				
-				//set position
-				tiles[i].transform.localPosition = Vector3.right * i * offset;
+				tiles[i].SetUp(new Vector2(i,0));
+				//tiles[i].position = ;
 				
 				
 				int isSwamp = IsSwamp(i);
 				if(isSwamp >= 0)
 				{
-					tiles[i].swamp = true; 
+					tiles[i].isSwampTop = true; 
 					
 					swamps[isSwamp].SetUp(tilePrefab, tiles[i]);
 					
@@ -53,19 +50,27 @@ namespace BrennanHatton.Tonk
 				}
 			}
 			
-			/*
+			SetUpTeleports();
+		}
+		
+		public void SetUpTeleports()
+		{	
 			
 			for(int i = 0; i < length; i++)
 			{
 				
-				int isTeleport = IsTeleport();
-				if(isTeleport >= 0)
+				int teleportId = IsTeleport(i);
+				if(teleportId >= 0)
 				{
-					tiles[i].teleport = isTeleport; 
+					tiles[i].teleport = GetTile(teleports[teleportId].target);
+				}
+				
+				int isSwamp = IsSwamp(i);
+				if(isSwamp >= 0)
+				{
+					swamps[isSwamp].SetUpTeleports(this);
 				}
 			}
-			
-			*/
 			
 		}
 		
@@ -85,22 +90,33 @@ namespace BrennanHatton.Tonk
 			for(int i = 0; i < teleports.Length; i++)
 			{
 				if(teleports[i].id == id)
-					return id;
+					return i;
 			}
 			
 			return -1;
 		}
 		
-		public void GetTile(Vector2 pos)
+		/// <summary>
+		/// Get tile from tile position
+		/// </summary>
+		/// <param name="pos"></param>
+		public Tile GetTile(Vector2 pos)
 		{
 			Tile retTile = tiles[(int)pos.x];
 			
-			if(retTile.swamp)
+			if(retTile.isSwampTop)
 			{
 				return swamps[IsSwamp((int)pos.x)].tiles[(int)pos.y];
 			}
 			return retTile;
 		}
+		
+		
+		
+		
+		
+		
+		
 		
 	
 		[System.Serializable]
@@ -117,15 +133,46 @@ namespace BrennanHatton.Tonk
 			{
 				parent = _parent;
 				
-				tiles = new Tile[length];
+				tiles = new Tile[length+1];
+			
+				tiles[0] = _parent;
+				tiles[length] = _parent;
+			
+				for(int i = 1; i < length; i++)
+				{
+					tiles[i] = Instantiate(tilePrefab, parent.transform) as Tile;
+					tiles[i].SetUp(new Vector2(parent.position.x,i));
+					tiles[i].isBias = true;
+				}
+				
+				parent.teleport = tiles[length-1];
+			}
+			
+			
+		
+			public void SetUpTeleports(MapManager map)
+			{	
 			
 				for(int i = 0; i < length; i++)
 				{
-					tiles[i] = Instantiate(tilePrefab, parent.transform) as Tile;;
+					int teleportId = IsTeleport(i);
 					
-					//set position
-					tiles[i].transform.localPosition = Vector3.down * i * offset;
+					if(teleportId >= 0)
+					{
+						tiles[i].teleport = map.GetTile(teleports[teleportId].target);
+					}
 				}
+			}
+		
+			int IsTeleport(int id)
+			{
+				for(int i = 0; i < teleports.Length; i++)
+				{
+					if(teleports[i].id == id)
+						return i;
+				}
+			
+				return -1;
 			}
 		}
 	
