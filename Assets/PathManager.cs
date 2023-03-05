@@ -15,6 +15,15 @@ namespace BrennanHatton.Tonk
 		{
 			map = this.GetComponent<MapManager>();
 			map.SetUp();
+			
+			players = new List<Player>();
+			Player[] playersFound = GameObject.FindObjectsOfType<Player>();
+			
+			for(int i = 0; i < playersFound.Length; i++)
+			{
+				players.Add(playersFound[i]);
+			}
+			
 		}
 		
 		/*void Start()

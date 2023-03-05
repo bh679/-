@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 namespace BrennanHatton.Tonk
 {
@@ -14,13 +14,18 @@ namespace BrennanHatton.Tonk
 		public Vector2 position;
 		public static float offset = 1.1f;
 		
-		public Text text;
+		public TMP_Text text;
 		
 		public void SetUp(Vector2 pos)
 		{
 			position = pos;
-			//set position
-			transform.localPosition = Vector3.right * pos.x * offset + Vector3.down*pos.y*offset;
+			
+			if(pos.y > 0)
+				transform.localPosition = Vector3.down * pos.y * offset;
+			else
+				transform.localPosition = Vector3.right * pos.x * offset;
+				
+			text.text = pos.x + " " + pos.y;
 		}
 		
 	}

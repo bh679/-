@@ -35,6 +35,7 @@ namespace BrennanHatton.Tonk
 			{
 				Debug.Log(i);
 				tiles[i] = Instantiate(tilePrefab, this.transform) as Tile;
+				
 				tiles[i].SetUp(new Vector2(i,0));
 				//tiles[i].position = ;
 				
@@ -108,6 +109,7 @@ namespace BrennanHatton.Tonk
 			{
 				return swamps[IsSwamp((int)pos.x)].tiles[(int)pos.y];
 			}
+			
 			return retTile;
 		}
 		
@@ -141,17 +143,18 @@ namespace BrennanHatton.Tonk
 				for(int i = 1; i < length; i++)
 				{
 					tiles[i] = Instantiate(tilePrefab, parent.transform) as Tile;
-					tiles[i].SetUp(new Vector2(parent.position.x,i));
+					tiles[i].SetUp(
+						new Vector2(parent.position.x, i)
+					);
 					tiles[i].isBias = true;
 				}
-				
-				parent.teleport = tiles[length-1];
 			}
 			
 			
 		
 			public void SetUpTeleports(MapManager map)
 			{	
+				parent.teleport = tiles[length-1];
 			
 				for(int i = 0; i < length; i++)
 				{
