@@ -59,13 +59,12 @@ namespace BrennanHatton.Tonk
 		
 		public void MovePlayer(int playerId, int pos)
 		{
-			Debug.Log(playerId + " " + pos);
 			players[playerId].Move(pos);
 		}
 		
 		public void AddPlayer()
 		{
-			Player newPlayer = Instantiate(playerPrefab, this.transform) as Player;
+			Player newPlayer = Instantiate(playerPrefab, map.transform.position, Quaternion.identity,this.transform) as Player;
 			newPlayer.SetPlayerId(players.Count);
 			players.Add(newPlayer);	
 		}

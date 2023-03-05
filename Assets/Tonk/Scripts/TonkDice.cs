@@ -27,7 +27,6 @@ namespace BrennanHatton.Tonk
 	    
 		public void ChangeDiceColor()
 		{
-			Debug.LogError("ChangeDiceColor " + tonkManager.playersTurn);
 			for(int i = 0; i < images.Length; i++)
 			{
 				images[i].color = tonkManager.players[tonkManager.playersTurn].colors[tonkManager.playersTurn%tonkManager.players[0].colors.Length];

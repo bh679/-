@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BrennanHatton.UnityTools;
 
 namespace BrennanHatton.Tonk
 {
@@ -16,6 +17,7 @@ namespace BrennanHatton.Tonk
 		public Color[] colors;
 		public MeshRenderer[] renderers;
 		public BiasTips biasTips;
+		public MoveTowardsTarget mover;
 		
 		public void Reset()
 		{
@@ -31,7 +33,19 @@ namespace BrennanHatton.Tonk
 			
 			position = Vector2.zero;
 			
+			mover.eventOnComplete.AddListener(CheckTeleport);
+			
 			SetTileFromPosition();
+		}
+		
+		public void MyTurn()
+		{
+			
+		}
+		
+		public void EndTurn()
+		{
+			
 		}
 		
 		public void SetPlayerId(int _id)
@@ -50,7 +64,15 @@ namespace BrennanHatton.Tonk
 				currentTile.RemovePlayer(this);
 			
 			currentTile = map.GetTile(position);
-				
+			
+			mover.SetTarget(currentTile.transform);
+			mover.enabled = true;
+		}
+		
+		public void CheckTeleport()
+		{
+			mover.enabled = false;
+			Debug.Log(currentTile.isSwampTop);
 			if(currentTile.isSwampTop || currentTile.teleport)
 			{
 				biasTips.LandedOnTile(currentTile);

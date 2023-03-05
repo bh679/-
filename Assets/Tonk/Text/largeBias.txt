@@ -1,4 +1,8 @@
-Dunning-Kruger effect, Belief bias
-Groupthink, Fundamental attribution error,
-Bystander effect, Authority bias, In-group bias,
-Out-group bias, Sunk cost fallacy,
+Your bias is the Groupthink Bias, which means that you might go along with a group decision, even if you don't agree with it, because you don't want to rock the boat. It can lead to bad decisions because no one is questioning if it's really the right thing to do.
+Your bias is the Authority Bias, which means that you might blindly follow the opinions of someone in authority, without questioning if it's the right thing to do. It can lead to bad decisions because the person in authority might not always be right.
+Your bias is the Fundamental Attribution Error, which means that you might blame a person's character or personality for something bad that happened to them, instead of considering the situational factors that might have caused it. It can lead to unfair treatment of people who are already struggling.
+Your bias is the Stereotyping Bias, which means that you might make assumptions about someone based on their race, gender, or other characteristics, instead of getting to know them as an individual. It can lead to discrimination and unfair treatment.
+Your bias is the Availability Heuristic, which means that you might overestimate the likelihood of something happening because you can easily recall examples of it happening in the past. It can lead to fear and anxiety, even when the thing you're afraid of is unlikely to happen.
+Your bias is the Overconfidence Bias, which means that you might be too confident in your abilities or your knowledge, and take risks that you shouldn't. It can lead to dangerous situations, both for you and for other people.
+Your bias is the Illusory Superiority Bias, which means that you might overestimate how good you are at something, and think that you're better than other people, even when you're not. It can lead to arrogance and a lack of willingness to learn from other people.
+Your bias is the Dunning-Kruger Effect, which means that you might be too incompetent to realize how incompetent you are, and think that you're better at something than you actually are. It can lead to bad decisions and a lack of self-awareness.

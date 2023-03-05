@@ -31,13 +31,14 @@ public class Dice : MonoBehaviour
 		{
 			yield return new WaitForSeconds(0.1f);
 			
-			value = Random.Range(0,6);
+			value = Random.Range(1,6);
 			UpdateDisplay(value);
 			
 			time -= 0.1f;
 		}
 		
-		value = Random.Range(0,6);
+		value = Random.Range(1,6);
+		
 		UpdateDisplay(value);
 		
 		onLand.Invoke(value);
@@ -54,6 +55,6 @@ public class Dice : MonoBehaviour
 			images[i].SetActive(false);
 		}
 		
-		images[val].SetActive(true);
+		images[val-1].SetActive(true);
 	}
 }
