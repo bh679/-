@@ -2,9 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : MonoBehaviour
+namespace BrennanHatton.Tonk
 {
-	public bool swamp;
-	public Tile teleport = null;
 	
+	public class Tile : MonoBehaviour
+	{
+		public bool swamp;
+		public Tile teleport = null;
+		
+		public void Setup()
+		{
+			
+		}
+		
+	}
 }

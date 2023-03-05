@@ -4,18 +4,10 @@ using UnityEngine;
 
 namespace BrennanHatton.Tonk
 {
-
-	public class PathManager : MonoBehaviour
+	
+	public class Player : MonoBehaviour
 	{
-		public MapManager map;
-		
-		public List<Player> players;
-		
-		public void Reset()
-		{
-			map = this.GetComponent<MapManager>();
-			map.SetUp();
-		}
+		Vector2 position;
 		
 	    // Start is called before the first frame update
 	    void Start()
@@ -29,5 +21,4 @@ namespace BrennanHatton.Tonk
 	        
 	    }
 	}
-
 }
