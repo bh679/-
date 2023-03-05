@@ -10,6 +10,10 @@ namespace BrennanHatton.Tonk
 		public MapManager map;
 		Vector2 position;
 		Tile currentTile;
+		int id;
+		//public Material[] materials;
+		public Color[] colors;
+		public MeshRenderer[] renderers;
 		
 		public void Reset()
 		{
@@ -18,13 +22,29 @@ namespace BrennanHatton.Tonk
 		
 		void Start()
 		{
+			if(map == null)
+				map = GameObject.FindAnyObjectByType<MapManager>();
+			
 			position = Vector2.zero;
 			
 			SetTileFromPosition();
 		}
 		
+		public void SetPlayerId(int _id)
+		{
+			id = _id;
+			
+			for(int i = 0; i < renderers.Length; i++)
+			{
+				renderers[i].material.color = colors[id%colors.Length];
+			}
+		}
+		
 		void SetTileFromPosition()
 		{
+			if(currentTile != null)
+				currentTile.RemovePlayer(this);
+			
 			Debug.Log(position);
 			currentTile = map.GetTile(position);
 				
@@ -36,9 +56,8 @@ namespace BrennanHatton.Tonk
 				
 				currentTile = map.GetTile(position);
 			}
-			
-			this.transform.position = currentTile.transform.position 
-				- Vector3.forward;
+				
+			currentTile.AddPlayer(this);
 		}
 	    
 		public void Move(int distance)
@@ -57,7 +76,6 @@ namespace BrennanHatton.Tonk
 				position.x += distance;
 			
 			SetTileFromPosition();
-				
 		}
 	}
 }

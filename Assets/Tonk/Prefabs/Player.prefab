@@ -111,3 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  colors:
+  - {r: 0, g: 0.7264151, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.84931326, a: 1}
+  - {r: 0, g: 0.9690399, b: 1, a: 1}
+  renderers:
+  - {fileID: 7851793783948838956}

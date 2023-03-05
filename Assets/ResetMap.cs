@@ -10,20 +10,13 @@ namespace BrennanHatton.Tonk
 		public void Reset()
 		{
 			MapManager map = this.GetComponent<MapManager>();
+			
+			for(int i = 0; i < map.tiles.Length; i++)
+				DestroyImmediate(map.tiles[i]);
+			
 			map.SetUp();
 			
 		}
-	    // Start is called before the first frame update
-	    void Start()
-	    {
-	        
-	    }
-	
-	    // Update is called once per frame
-	    void Update()
-	    {
-	        
-	    }
 	}
 
 }
