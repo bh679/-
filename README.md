@@ -8,7 +8,7 @@
 A boardgame desigend by AlexObraz, around understand the impact of biases and compounding biases. 
 
 ## Inspiration
- - 
+ - https://obraz.io/test/ — site with link on test for Logical Fallacies
  
 ## Team
 [Brennan Hatton](https://github.com/bh679) - Award Winning Game Developer, & Social Entrepreneur.<br >
