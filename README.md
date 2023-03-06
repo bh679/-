@@ -24,3 +24,4 @@ Faith Petrie - NSW Health Social Worker<br >
  - Skill based puzzles on overcoming biases to get out of swamps.
  - AI Genearted Story after first player reaches the end.
  - More exmaples and content to create stronger narrative throughout game
+ - Add strategy.
