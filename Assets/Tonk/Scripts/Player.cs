@@ -6,6 +6,8 @@ using BrennanHatton.UnityTools;
 namespace BrennanHatton.Tonk
 {
 	
+	//public class Log
+	
 	public class Player : MonoBehaviour
 	{
 		public MapManager map;
@@ -71,7 +73,6 @@ namespace BrennanHatton.Tonk
 		
 		public void CheckTeleport()
 		{
-			mover.enabled = false;
 			Debug.Log(currentTile.isSwampTop);
 			if(currentTile.isSwampTop || currentTile.teleport)
 			{
@@ -79,8 +80,13 @@ namespace BrennanHatton.Tonk
 				position = currentTile.teleport.position;
 				
 				currentTile = map.GetTile(position);
+				mover.SetTarget(currentTile.transform);
+				mover.enabled = true;
+				
+				return;
 			}
 				
+			mover.enabled = false;
 			currentTile.AddPlayer(this);
 		}
 	    

@@ -56068,7 +56068,7 @@ MonoBehaviour:
   - {fileID: 62936334}
   - {fileID: 608134064}
   value: 0
-  landTime: {x: 0.1, y: 2}
+  landTime: {x: 0.1, y: 1}
 --- !u!114 &839356190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65113,7 +65113,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.9589422
+  orthographic size: 26.38029
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
