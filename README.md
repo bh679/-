@@ -1,6 +1,7 @@
 # Толк
 ### The game about congative bias and logical fallacies
 <i>In-development</i>
+![TOLK_4](https://user-images.githubusercontent.com/2542558/222999275-2704470b-39b1-4b99-acd0-b927835d9b3c.jpg)
 
 # [Player the game here](https://www.brennanhatton.com/Tonk/)
 
