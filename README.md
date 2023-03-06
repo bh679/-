@@ -1,5 +1,5 @@
 # Толк
-### The game about congative bias and logical fallacies
+### The game about Congitive biases and Logical fallacies
 <i>In-development</i>
 ![TOLK_4](https://user-images.githubusercontent.com/2542558/222999275-2704470b-39b1-4b99-acd0-b927835d9b3c.jpg)
 
@@ -12,7 +12,7 @@ A boardgame desigend by AlexObraz, around understand the impact of biases and co
  
 ## Team
 [Brennan Hatton](https://github.com/bh679) - Award Winning Game Developer, & Social Entrepreneur.<br >
-[Alex Obraz](https://github.com/AlexObraz) - Critcal Thinking Influencer on Congnative Biases and Logical Fallacies <br >
+[Alex Obraz](https://github.com/AlexObraz) - Critcal Thinking Influencer on Congnitive Biases and Logical Fallacies <br >
 Faith Petrie - Rehabilitation Social Worker <br >
 
 ## Asset Packs
