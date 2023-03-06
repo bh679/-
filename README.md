@@ -10,7 +10,11 @@ A boardgame desigend by AlexObraz, around understand the impact of biases and co
 ## Inspiration
  - 
  
- 
+## Team
+[Brennan Hatton](https://github.com/bh679) - Award Winning Game Developer, & Social Entrepnure.
+[Alex Obraz](https://github.com/AlexObraz) - Critcal Thinking Influencer on Congnative Biases and Logical Fallacies 
+[Faith Petrie] - NSW Health Social Worker
+
 ## Asset Packs
  - [Brennans Unity Tools](https://github.com/bh679/Unity-Tools)
  
